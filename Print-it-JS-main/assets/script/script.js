@@ -1,3 +1,5 @@
+//****** ARRAY ******//
+
 const slides = [
 	{
 		"image": "slide1.jpg",
@@ -19,7 +21,43 @@ const slides = [
 
 let imageBannerOrder = 0
 
+//****** ARRAY END ******//
+
 let divBanner = document.getElementById("banner")
+
+//****** CREATE DOT ******//
+
+let divDot = document.querySelector(".dots")
+
+for (let i = 0; i < slides.length; i++) {
+
+	let dots = document.createElement("div")
+	dots.classList.add("dot")
+	divDot.appendChild(dots)
+}
+
+//****** CREATE DOT END ******//
+
+//****** DOTS SELECTED ******//
+function dotSelected() {
+
+	let allDots = document.querySelectorAll(".dot")
+
+	for (let i = 0; i < slides.length; i++) {
+
+		let dot = allDots[i]
+
+		if (i === imageBannerOrder) {
+			dot.classList.add('dot_selected')
+		} else {
+			dot.classList.remove('dot_selected')
+		}
+	}
+}
+
+//****** DOTS SELECTED END ******//
+
+dotSelected()
 
 //****** BANNER IMAGE & TAGLINE ******//
 
@@ -65,21 +103,3 @@ arrowLeft.addEventListener("click", () => {
 // Arrow Left end //
 //****** ARROWS END ******//
 
-//****** DOTS SELECTED ******//
-
-function dotSelected() {
-	let allDots = document.querySelectorAll(".dot")
-
-	for (let i = 0; i < slides.length; i++) {
-
-		let dot = allDots[i]
-
-		if (i === imageBannerOrder) {
-			dot.classList.add('dot_selected')
-		} else {
-			dot.classList.remove('dot_selected')
-		}
-	}
-}
-
-//****** DOTS SELECTED END ******//
